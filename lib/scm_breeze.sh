@@ -12,6 +12,9 @@ disable_nullglob() { if [ $shell = "zsh" ]; then unsetopt NULL_GLOB; else shopt 
 # Alias wrapper that ignores errors if alias is not defined.
 _alias(){ alias "$@" 2> /dev/null; }
 
+# Print formatted alias index
+list_aliases() { alias | grep "$*" --color=never | sed -e 's/alias //' -e "s/=/::/" -e "s/'//g" | awk -F "::" '{ printf "\033[1;36m%15s  \033[2;37m=>\033[0m  %-8s\n",$1,$2}'; }
+
 find_binary(){
   if [ $shell = "zsh" ]; then
     builtin type -p "$1" | sed "s/$1 is //" | head -1
