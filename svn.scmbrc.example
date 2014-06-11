@@ -1,0 +1,64 @@
+#
+# SVN File Shortcuts Config
+# ----------------------------------------------
+# - Set your preferred prefix for env variable file shortcuts.
+#   (I chose 'e' because it is easy to slide your finger to it from '$'.)
+export svn_env_char="f"
+# - Max changed files before reverting to 'svn status'. svn_status_shortcuts() will be slower for lots of changed files.
+# export svs_max_changes="150"
+# - When using the svn_add_shorcuts() command, automatically invoke 'svn rm' to remove deleted files?
+# export ga_auto_remove="yes"
+
+# - Set the following option to 'no' if you want to use your existing svn aliases
+#   instead of overwriting them.
+#   Note: Bash tab completion will not be automatically set up for your aliases if you disable this option.
+export svn_setup_aliases="yes"
+
+
+# svn Index Config
+# ----------------------------------------------
+# Repos will be automatically added from this directory.
+# export svn_REPO_DIR="$HOME/Documents/Projects"
+# Add the full paths of any extra repos to svn_REPOS, separated with ':'
+# e.g. "/opt/rails/project:/opt/rails/another project:$HOME/other/repo"
+# export svn_REPOS=""
+# export svn_status_command="svn_status_shortcuts"
+# Alias
+# svn_index_alias="k"    # Switch to a repo in the (c)ode directory
+
+
+# svn Aliases
+# ----------------------------------------------
+svn_alias="sv"
+
+# 1. 'SCM Breeze' functions
+svn_status_shortcuts_alias="svs"
+svn_add_shortcuts_alias="sva"
+# 2. Commands that handle paths (with shortcut args expanded)
+svn_checkout_alias="svco"
+svn_commit_alias="svc"
+svn_blame_alias="svbl"
+svn_diff_alias="svd"
+svn_add_alias="sva"
+# 3. Standard commands
+svn_status_original_alias="svst"
+svn_cleanup_alias="svce"
+svn_add_all_alias="svaa"
+svn_commit_all_alias="svca"
+svn_merge_alias="svm"
+svn_log_alias="svl"
+
+# svn Keyboard Shortcuts
+# ----------------------------------------------
+# Keyboard shortcuts are on by default. Set this to 'false' to disable them.
+# svn_keyboard_shortcuts_enabled="true"
+# svn_commit_all_keys="\C-x "        # CTRL+x, SPACE
+# svn_add_and_commit_keys="\C-xc"    # CTRL+x, c
+
+
+# Shell Command Wrapping
+# ----------------------------------------------
+# Expand numbered args for common shell commands
+# shell_command_wrapping_enabled="false"
+# # Here you can tweak the list of wrapped commands.
+# scmb_wrapped_shell_commands="emacs cat rm cp mv ln cd ls"
