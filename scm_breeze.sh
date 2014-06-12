@@ -33,3 +33,18 @@ if [[ -s "$HOME/.git.scmbrc" ]]; then
   fi
 fi
 
+
+# SVN
+# ------------------------------------------------------------
+if [[ -s "$HOME/.svn.scmbrc" ]]; then
+  # Load git config
+  source "$HOME/.svn.scmbrc"
+  source "$scmbDir/lib/svn/helpers.sh"
+  source "$scmbDir/lib/svn/aliases.sh"
+  # source "$scmbDir/lib/svn/keybindings.sh"
+  # source "$scmbDir/lib/svn/status_shortcuts.sh"
+  # source "$scmbDir/lib/svn/branch_shortcuts.sh"
+  # source "$scmbDir/lib/svn/shell_shortcuts.sh"
+  # source "$scmbDir/lib/svn/repo_index.sh"
+  # source "$scmbDir/lib/svn/tools.sh"
+fi
