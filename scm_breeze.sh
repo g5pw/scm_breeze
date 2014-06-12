@@ -42,7 +42,7 @@ if [[ -s "$HOME/.svn.scmbrc" ]]; then
   source "$scmbDir/lib/svn/helpers.sh"
   source "$scmbDir/lib/svn/aliases.sh"
   # source "$scmbDir/lib/svn/keybindings.sh"
-  # source "$scmbDir/lib/svn/status_shortcuts.sh"
+  source "$scmbDir/lib/svn/status_shortcuts.sh"
   # source "$scmbDir/lib/svn/branch_shortcuts.sh"
   # source "$scmbDir/lib/svn/shell_shortcuts.sh"
   # source "$scmbDir/lib/svn/repo_index.sh"
