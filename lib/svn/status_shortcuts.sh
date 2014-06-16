@@ -51,7 +51,7 @@ svn_status_shortcuts() {
 		color+="0m"
 		message="    unknown:"
 	esac
-	echo -e "\t$color$message \033[0m[\033[2;37m$counter\033[0m] $color$filename\033[0m"
+	echo -e "$color#\t$message \033[0m[\033[2;37m$counter\033[0m] $color$filename\033[0m"
 	export r$counter="$filename"
 	((counter++))
     done
