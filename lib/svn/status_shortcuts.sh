@@ -4,8 +4,17 @@ svn_status_shortcuts() {
     local counter=1
 
     local -a split
-    local mode filename message color
+    local -A header
+    local mode filename message color oldstatus=""
 
+    header=("A" "Changes to be commited:")
+    header+=("C" "Conflicted changes:")
+    header+=("D" "Deleted files:")
+    header+=("I" "Ignored files:")
+    header+=("M" "Modified files:")
+    header+=("?" "Untracked files:")
+
+    typeset -r header
 
     $SVN_BINARY status | sort -r | while read line; do
 	split=("${(s< >)line}")
@@ -51,6 +60,14 @@ svn_status_shortcuts() {
 		color+="0m"
 		message="    unknown:"
 	esac
+
+	if [[ $oldstatus != $mode ]]; then
+	    oldstatus=$mode
+	    echo ""
+	    echo "➤ $header[$mode]"
+	    echo "$color#\033[0m"
+	fi
+
 	echo -e "$color#\t$message \033[0m[\033[2;37m$counter\033[0m] $color$filename\033[0m"
 	export r$counter="$filename"
 	((counter++))
