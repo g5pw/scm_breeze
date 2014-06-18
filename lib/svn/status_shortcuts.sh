@@ -5,7 +5,7 @@ svn_status_shortcuts() {
 
     local -a split
     local -A header
-    local mode filename message color oldstatus=""
+    local mode filename message color spacer oldstatus=""
 
     header=("A" "Changes to be commited:")
     header+=("C" "Conflicted changes:")
@@ -68,7 +68,12 @@ svn_status_shortcuts() {
 	    echo "$color#\033[0m"
 	fi
 
-	echo -e "$color#\t$message \033[0m[\033[2;37m$counter\033[0m] $color$filename\033[0m"
+	if [[ $counter -lt 10 ]]; then
+	    spacer=" "
+	else
+	    spacer=""
+	fi
+	echo -e "$color#\t$message $spacer\033[0m[\033[2;37m$counter\033[0m $color$filename\033[0m"
 	export r$counter="$filename"
 	((counter++))
     done
