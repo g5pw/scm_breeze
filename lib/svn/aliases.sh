@@ -30,6 +30,7 @@ __svn_alias () {
 # --------------------------------------------------------------------
 # SCM Breeze functions
 _alias $svn_status_shortcuts_alias="svn_status_shortcuts"
+_alias $svn_add_shortcuts_alias="svn_add_shortcuts"
 
 # Only set up the following aliases if 'svn_setup_aliases' is 'yes'
 if [ "$svn_setup_aliases" = "yes" ]; then
