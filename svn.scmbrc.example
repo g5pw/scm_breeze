@@ -39,7 +39,7 @@ svn_checkout_alias="svco"
 svn_commit_alias="svc"
 svn_blame_alias="svbl"
 svn_diff_alias="svd"
-svn_add_alias="sva"
+svn_add_alias="svad"
 # 3. Standard commands
 svn_status_original_alias="svst"
 svn_cleanup_alias="svce"
