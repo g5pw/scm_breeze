@@ -10,7 +10,13 @@ enable_nullglob()  { if [ $shell = "zsh" ]; then setopt NULL_GLOB;   else shopt 
 disable_nullglob() { if [ $shell = "zsh" ]; then unsetopt NULL_GLOB; else shopt -u nullglob; fi; }
 
 # Alias wrapper that ignores errors if alias is not defined.
-_alias(){ alias "$@" 2> /dev/null; }
+_safe_alias(){ alias "$@" 2> /dev/null; }
+_alias() {
+  if [ -n "$1" ]; then
+    local alias_str="$1"; local cmd="$2"
+    _safe_alias $alias_str="$cmd"
+  fi
+}
 
 # Print formatted alias index
 list_aliases() { alias | grep "$*" --color=never | sed -e 's/alias //' -e "s/=/::/" -e "s/'//g" | awk -F "::" '{ printf "\033[1;36m%15s  \033[2;37m=>\033[0m  %-8s\n",$1,$2}'; }
